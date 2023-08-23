@@ -2,7 +2,7 @@
 
 namespace aptekaAprel
 {
-    partial class Form1
+    partial class fMain
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -30,7 +30,7 @@ namespace aptekaAprel
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMain));
             this.gridView = new aptekaAprel.CustomDataGridView();
             this.butImage = new System.Windows.Forms.Button();
             this.butDiscord = new System.Windows.Forms.Button();

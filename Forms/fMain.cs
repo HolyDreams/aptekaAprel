@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace aptekaAprel
 {
-    public partial class Form1 : Form
+    public partial class fMain : Form
     {
-        public Form1()
+        public fMain()
         {
             InitializeComponent();
         }
@@ -120,7 +120,7 @@ namespace aptekaAprel
 
         private void butImage_Click(object sender, EventArgs e)
         {
-            var picture = new ImageSelect();
+            var picture = new fImageSelect();
             picture.Show();
         }
 

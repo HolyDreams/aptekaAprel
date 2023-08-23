@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace aptekaAprel
 {
-    public partial class ImageSelect : Form
+    public partial class fImageSelect : Form
     {
-        public ImageSelect()
+        public fImageSelect()
         {
             InitializeComponent();
             this.pictureBox1.MouseWheel += PictureBox1_MouseWheel;

@@ -1,6 +1,6 @@
 ﻿namespace aptekaAprel
 {
-    partial class ImageSelect
+    partial class fImageSelect
     {
         /// <summary>
         /// Required designer variable.

@@ -122,65 +122,65 @@
     <Compile Include="Attribut\TextAttribute.cs" />
     <Compile Include="Converter\ToDataTable.cs" />
     <Compile Include="Converter\ToJson.cs" />
-    <Compile Include="createJS.cs" />
+    <Compile Include="Base\createJS.cs" />
     <Compile Include="CustomDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomDataGridView.Designer.cs">
       <DependentUpon>CustomDataGridView.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataStruct.cs" />
-    <Compile Include="DiscordWebHook.cs" />
-    <Compile Include="Exceptions.cs" />
-    <Compile Include="fAddPoint.cs">
+    <Compile Include="Base\DataStruct.cs" />
+    <Compile Include="Discord\DiscordWebHook.cs" />
+    <Compile Include="Discord\Exceptions.cs" />
+    <Compile Include="Forms\fAddPoint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fAddPoint.Designer.cs">
+    <Compile Include="Forms\fAddPoint.Designer.cs">
       <DependentUpon>fAddPoint.cs</DependentUpon>
     </Compile>
-    <Compile Include="FilterTable.cs">
+    <Compile Include="Forms\FilterTable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FilterTable.Designer.cs">
+    <Compile Include="Forms\FilterTable.Designer.cs">
       <DependentUpon>FilterTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="fMaps.cs">
+    <Compile Include="Forms\fMaps.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fMaps.Designer.cs">
+    <Compile Include="Forms\fMaps.Designer.cs">
       <DependentUpon>fMaps.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\fMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\fMain.Designer.cs">
+      <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
     <Compile Include="ICheckableControl.cs" />
-    <Compile Include="ImageSelect.cs">
+    <Compile Include="Forms\fImageSelect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImageSelect.Designer.cs">
-      <DependentUpon>ImageSelect.cs</DependentUpon>
+    <Compile Include="Forms\fImageSelect.Designer.cs">
+      <DependentUpon>fImageSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="Methods.cs" />
+    <Compile Include="Base\Methods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query.cs" />
-    <EmbeddedResource Include="fAddPoint.resx">
+    <EmbeddedResource Include="Forms\fAddPoint.resx">
       <DependentUpon>fAddPoint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FilterTable.resx">
+    <EmbeddedResource Include="Forms\FilterTable.resx">
       <DependentUpon>FilterTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fMaps.resx">
+    <EmbeddedResource Include="Forms\fMaps.resx">
       <DependentUpon>fMaps.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\fMain.resx">
+      <DependentUpon>fMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImageSelect.resx">
-      <DependentUpon>ImageSelect.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\fImageSelect.resx">
+      <DependentUpon>fImageSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
