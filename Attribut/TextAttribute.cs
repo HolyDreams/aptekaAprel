@@ -8,38 +8,47 @@ namespace aptekaAprel.Attribut
 {
     public enum NpgsqlType : int
     {
+        [Text("anyarray")]
         Array = -2147483648,
         Unknown = 0,
+        [Text("int8")]
         Bigint = 1,
+        [Text("bool")]
         Boolean = 2,
+        [Text("box")]
         Box = 3,
+        [Text("bytea")]
         Bytea = 4,
+        [Text("circle")]
         Circle = 5
     }
-
-    internal static class TextAttribute
+    public static class AttributesHelper
     {
-        public static string ToText(this NpgsqlType npgsqlType)
+        public static string ToText(Enum value)
         {
-            switch (npgsqlType)
-            {
-                case NpgsqlType.Array:
-                    return "anyarray";
-                case NpgsqlType.Unknown:
-                    return "anyarray";
-                case NpgsqlType.Bigint:
-                    return "int8";
-                case NpgsqlType.Boolean:
-                    return "bool";
-                case NpgsqlType.Box:
-                    return "box";
-                case NpgsqlType.Bytea:
-                    return "bytea";
-                case NpgsqlType.Circle:
-                    return "circle";
-                default:
-                    return "error";
-            }
+            var field = value.GetType().GetField(value.ToString());
+
+            if (field == null)
+                return default;
+
+            var text = field.GetCustomAttributes(typeof(TextAttribute), false);
+
+            if (text.Length == 0)
+                return default;
+
+            return ((TextAttribute)text[0]).temp;
+        }
+    }
+    public class TextAttribute : Attribute
+    {
+        public string temp { get; set; }
+        public TextAttribute(string a)
+        {
+            temp = a;
+        }
+        public override string ToString()
+        {
+            return temp;
         }
     }
 }
