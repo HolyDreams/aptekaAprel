@@ -34,7 +34,6 @@ namespace aptekaAprel
             if (addPoint.newPoint == null)
                 return;
 
-            var qq = CreateJSPoint(addPoint.newPoint);
             chromiumWebBrowser1.ExecuteScriptAsync(CreateJSPoint(addPoint.newPoint));
             chromiumWebBrowser1.ExecuteScriptAsync("document.getElementById('ButtonAddObject').click()");
 
@@ -42,7 +41,6 @@ namespace aptekaAprel
 
         private void butAddCircle_Click(object sender, EventArgs e)
         {
-            var qq = CreateJSCircle();
             chromiumWebBrowser1.ExecuteScriptAsync(CreateJSCircle());
             chromiumWebBrowser1.ExecuteScriptAsync("document.getElementById('ButtonAddCircle').click()");
 
