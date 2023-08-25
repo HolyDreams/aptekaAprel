@@ -22,7 +22,8 @@ namespace aptekaAprel
         {
             newPoint = new MapPoint()
             {
-                Coordinates = "[" + textX.Text + ", " + textY.Text + "]",
+                CoordinateX = double.Parse(textX.Text),
+                CoordinateY = double.Parse(textY.Text),
                 Name = textName.Text,
                 Description = textDesc.Text
             };

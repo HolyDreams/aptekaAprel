@@ -20,7 +20,8 @@ namespace aptekaAprel
     }
     public class MapPoint
     {
-        public string Coordinates { get; set; }
+        public double CoordinateX { get; set; }
+        public double CoordinateY { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
     }

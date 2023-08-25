@@ -15,7 +15,6 @@ namespace aptekaAprel
 {
     public partial class CustomDataGridView : DataGridView
     {
-
         Query query = new Query();
         DataTable source;
         public CustomDataGridView()
@@ -24,19 +23,6 @@ namespace aptekaAprel
 
             source = query.FillData();
             loadTable();
-
-            var favs = Methods.ReadFavs();
-            if (favs == null)
-                return;
-
-
-            for (int i = 0; i < Columns.Count; i++)
-            {
-                Columns[i].DisplayIndex = favs.FirstOrDefault(a => a.Name == Columns[i].Name).Index;
-                Columns[i].Name = favs.FirstOrDefault(a => a.Name == Columns[i].Name).Name;
-                Columns[i].Width = favs.FirstOrDefault(a => a.Name == Columns[i].Name).Width;
-                Columns[i].Visible = favs.FirstOrDefault(a => a.Name == Columns[i].Name).Visible;
-            }
         }
         private void CustomDataGridView_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -66,7 +52,7 @@ namespace aptekaAprel
                     filterTable.ShowDialog();
                     if (filterTable.search != "")
                     {
-                        source = query.FillData($@"WHERE {Columns[i].Name} LIKE '%{filterTable.search}%'");
+                        source = query.FillData($@"WHERE {Columns[i].DataPropertyName} LIKE '%{filterTable.search}%'");
 
                         loadTable();
                         return;

@@ -127,9 +127,9 @@ namespace aptekaAprel
             this.Controls.Add(this.butDiscord);
             this.Controls.Add(this.butImage);
             this.Controls.Add(this.gridView);
+            this.Load += FMain_Load;
             this.Name = "Form1";
             this.Text = "АптекаАпрель";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
 

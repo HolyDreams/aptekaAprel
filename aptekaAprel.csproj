@@ -122,7 +122,6 @@
     <Compile Include="Attribut\TextAttribute.cs" />
     <Compile Include="Converter\ToDataTable.cs" />
     <Compile Include="Converter\ToJson.cs" />
-    <Compile Include="Base\createJS.cs" />
     <Compile Include="CustomDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -204,6 +203,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />

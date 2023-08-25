@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавление метки на карту</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        let GeoDescription;
+        let GeoOptions;
+        let Circle = [];
+        
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                    center: [55.76, 37.64],
+                    zoom: 10
+                }, {
+                    searchControlProvider: 'yandex#search'
+                })
+        
+            document.querySelector("#ButtonAddObject").onclick = function () {
+                myMap.geoObjects.add(new ymaps.GeoObject(GeoDescription, GeoOptions));
+
+                if (Circle.length != 0) {
+                    myMap.geoObjects.add(new ymaps.Circle(Circle[0], Circle[1], Circle[2]));
+                }
+            }
+        }
+        
+        function addGeoObject(Type, X, Y, TextContent, HoverContent, styleIcon, IsDrag){
+            GeoDescription = { 
+                geometry: { 
+                    type: Type,
+                    coordinates:[X,Y]
+                },
+                properties: { 
+                    iconContent:TextContent,
+                    hintContent:HoverContent
+                }
+            };
+            GeoOptions = {
+                preset:'islands#' + styleIcon,
+                draggable:IsDrag
+            };
+        }
+
+        function addCircleObject(X, Y, R, TextContent, HoverContent, IsDrag, FillColor, BorderColor) {
+            Circle[0] = [
+                [X, Y],
+                R
+            ]
+            Circle[1] = {
+                balloonContent: TextContent,
+                hintContent: HoverContent
+            }
+            Circle[2] = {
+                draggable: IsDrag,
+                fillColor: FillColor,
+                strokeColor: BorderColor,
+                strokeOpacity: 0.8,
+                strokeWidth: 5
+            };
+        }
+    </script>
+	<style>
+        html, body, #map {
+            width: 100%; height: 100%; padding: 0; margin: 0;
+        }
+        button {
+            background-color: #fff; border-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    1.    addGeoObject("Point", 55, 37, "Text", "Hover", 'blackStretchyIcon', true)
+          addCircleObject("Point", 55, 37, "Text", "Hover", 'blackStretchyIcon', true)
+    2.    document.getElementById('ButtonAddObject').click()
+    -->
+    <button id="ButtonAddObject" style="position: absolute;"></button>
+    <div id="map"></div>
+</body>
+</html>
