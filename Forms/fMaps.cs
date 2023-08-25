@@ -34,7 +34,7 @@ namespace aptekaAprel
             if (addPoint.newPoint == null)
                 return;
 
-            chromiumWebBrowser1.ExecuteScriptAsync("alert('test')");
+            var qq = CreateJSPoint(addPoint.newPoint);
             chromiumWebBrowser1.ExecuteScriptAsync(CreateJSPoint(addPoint.newPoint));
             chromiumWebBrowser1.ExecuteScriptAsync("document.getElementById('ButtonAddObject').click()");
 
@@ -44,13 +44,13 @@ namespace aptekaAprel
         {
             var qq = CreateJSCircle();
             chromiumWebBrowser1.ExecuteScriptAsync(CreateJSCircle());
-            chromiumWebBrowser1.ExecuteScriptAsync("document.getElementById('ButtonAddObject').click()");
+            chromiumWebBrowser1.ExecuteScriptAsync("document.getElementById('ButtonAddCircle').click()");
 
         }
 
         private string CreateJSPoint(MapPoint point)
         {
-            return $"addGeoObject(\"Circle\", {point.CoordinateX}, {point.CoordinateY}, \"{point.Name}\", \"{point.Description}\", 'blackStretchyIcon', true)";
+            return $"addGeoObject(\"Point\", {point.CoordinateX}, {point.CoordinateY}, \"{point.Name}\", \"{point.Description}\", 'blackStretchyIcon', true)";
         }
         private string CreateJSCircle()
         {

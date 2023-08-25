@@ -9,38 +9,38 @@
         let GeoDescription;
         let GeoOptions;
         let Circle = [];
-        
+
         function init() {
             var myMap = new ymaps.Map("map", {
-                    center: [55.76, 37.64],
-                    zoom: 10
-                }, {
-                    searchControlProvider: 'yandex#search'
-                })
-        
+                center: [55.76, 37.64],
+                zoom: 10
+            }, {
+                searchControlProvider: 'yandex#search'
+            })
+
             document.querySelector("#ButtonAddObject").onclick = function () {
                 myMap.geoObjects.add(new ymaps.GeoObject(GeoDescription, GeoOptions));
 
-                if (Circle.length != 0) {
-                    myMap.geoObjects.add(new ymaps.Circle(Circle[0], Circle[1], Circle[2]));
-                }
+            }
+            document.querySelector("#ButtonAddCircle").onclick = function () {
+                myMap.geoObjects.add(new ymaps.Circle(Circle[0], Circle[1], Circle[2]));
             }
         }
-        
-        function addGeoObject(Type, X, Y, TextContent, HoverContent, styleIcon, IsDrag){
-            GeoDescription = { 
-                geometry: { 
+
+        function addGeoObject(Type, X, Y, TextContent, HoverContent, styleIcon, IsDrag) {
+            GeoDescription = {
+                geometry: {
                     type: Type,
-                    coordinates:[X,Y]
+                    coordinates: [X, Y]
                 },
-                properties: { 
-                    iconContent:TextContent,
-                    hintContent:HoverContent
+                properties: {
+                    iconContent: TextContent,
+                    hintContent: HoverContent
                 }
             };
             GeoOptions = {
-                preset:'islands#' + styleIcon,
-                draggable:IsDrag
+                preset: 'islands#' + styleIcon,
+                draggable: IsDrag
             };
         }
 
@@ -62,12 +62,18 @@
             };
         }
     </script>
-	<style>
+    <style>
         html, body, #map {
-            width: 100%; height: 100%; padding: 0; margin: 0;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
         }
+
         button {
-            background-color: #fff; border-color: #fff;
+            background-color: #fff;
+            border-color: #fff;
+            position: absolute;
         }
     </style>
 </head>
@@ -77,7 +83,8 @@
           addCircleObject("Point", 55, 37, "Text", "Hover", 'blackStretchyIcon', true)
     2.    document.getElementById('ButtonAddObject').click()
     -->
-    <button id="ButtonAddObject" style="position: absolute;"></button>
+    <button id="ButtonAddObject"></button>
+    <button id="ButtonAddCircle"></button>
     <div id="map"></div>
 </body>
 </html>
